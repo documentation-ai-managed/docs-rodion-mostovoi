@@ -1,0 +1,130 @@
+---
+title: Changelog
+description: Track the latest updates, new features, and changes in Rodion Mostovoi across versions.
+---
+
+## Recent Release Highlights
+
+Stay current with Rodion Mostovoi's evolution. You access new capabilities that enhance performance and usability.
+
+<Columns cols={3}>
+  <Card title="v1.2.0" icon="zap" href="#v120">
+    Real-time updates and UI improvements.
+  </Card>
+  <Card title="v1.1.0" icon="package" href="#v110">
+    Authentication enhancements and bug fixes.
+  </Card>
+  <Card title="v1.0.0" icon="rocket" href="#v100">
+    Initial stable release with core features.
+  </Card>
+</Columns>
+
+## Detailed Changes
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time dashboard updates using WebSockets at `wss://dashboard.example.com/ws`.
+- Introduced customizable themes with your brand color `#3B82F6`.
+
+## Improvements
+
+- Optimized API response times by `>30%` for endpoints like `https://api.example.com/users`.
+- Enhanced error handling with detailed logs.
+
+## Bug Fixes
+
+- Fixed intermittent connection drops in long-running sessions.
+- Resolved CSS conflicts in dark mode.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Implemented OAuth 2.0 support via `https://auth.example.com/oauth/token`.
+- Added webhook notifications to `https://your-webhook-url.com/webhook`.
+
+## Bug Fixes
+
+- Corrected invalid token refresh logic causing 401 errors.
+- Patched memory leaks in batch processing.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core API launch with user management at `https://api.example.com/users`.
+- Dashboard integration at `https://dashboard.example.com`.
+
+## Breaking Changes
+
+- Updated request format: Use `{ "api_key": "YOUR_API_KEY" }` instead of query params.
+
+</Update>
+
+## Upgrading to the Latest Version
+
+<Callout kind="info">
+  Review migration notes before upgrading. Test in staging first.
+</Callout>
+
+<Steps>
+  <Step title="Backup Data" icon="database">
+    Export your configurations and data.
+  </Step>
+  <Step title="Update Package" icon="package">
+    
+````bash
+npm install rodion-mostovoi@latest
+````
+
+  </Step>
+  <Step title="Migrate Config" icon="settings">
+    
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Old config
+const config = { apiKey: 'old_key' };
+
+// New config
+const config = { 
+  apiKey: 'YOUR_API_KEY',
+  themeColor: '#3B82F6' 
+};
+```
+```python
+# Old config
+config = {'api_key': 'old_key'}
+
+# New config
+config = {
+    'api_key': 'YOUR_API_KEY',
+    'theme_color': '#3B82F6'
+}
+```
+</CodeGroup>
+
+  </Step>
+  <Step title="Test Endpoints" icon="check-circle">
+    Verify `https://api.example.com/v1/users` returns expected data.
+  </Step>
+</Steps>
+
+## Upcoming Features
+
+<Expandable title="Roadmap Preview" default-open="true">
+
+- AI-powered analytics in Q1 2025.
+- Multi-region support for global deployments.
+- Enhanced mobile app integration.
+
+</Expandable>
+
+<Callout kind="tip">
+  Suggest features via GitHub issues at `https://github.com/example/rodion-mostovoi`.
+</Callout>

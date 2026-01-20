@@ -1,0 +1,134 @@
+---
+title: Core Features
+description: Detailed walkthrough of Rodion Mostovoi's main capabilities and real-world use cases.
+---
+
+## Overview
+
+Rodion Mostovoi empowers you to manage tasks, collaborate with teams, generate reports, and customize workflows to fit your needs. You access these features through the dashboard at `https://dashboard.example.com` or via the API at `https://api.example.com`.
+
+<Columns cols={3}>
+  <Card title="Task Management" icon="check-square" href="#task-management">
+    Create, assign, and track tasks efficiently.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Real-time sharing and updates with your team.
+  </Card>
+  <Card title="Analytics" icon="bar-chart-3" href="#analytics">
+    Insights from reports and dashboards.
+  </Card>
+</Columns>
+
+## Task Management Tools
+
+You handle tasks using intuitive tools for creation, prioritization, and tracking. Start by creating a new task board.
+
+<Steps>
+  <Step title="Create a Project" icon="plus">
+    Navigate to the dashboard and click "New Project". Enter details like name and due date.
+  </Step>
+  <Step title="Add Tasks" icon="list">
+    Within the project, add tasks with descriptions, assignees, and labels.
+  </Step>
+  <Step title="Set Priorities" icon="flag">
+    Assign priorities: high, medium, or low. Use drag-and-drop to reorder.
+  </Step>
+  <Step title="Track Progress" icon="eye">
+    Monitor completion with progress bars and notifications.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Enable auto-reminders for tasks due in `<24 hours` to stay proactive.
+</Callout>
+
+## Collaboration Features
+
+Share tasks and updates seamlessly. Rodion Mostovoi supports comments, mentions, and real-time edits.
+
+<Tabs>
+  <Tab title="Comments" icon="message-circle">
+    Add comments to tasks for discussions.
+
+    ```javascript
+    await fetch('https://api.example.com/tasks/123/comments', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+      body: JSON.stringify({ text: 'Review this design.' })
+    });
+    ```
+  </Tab>
+  <Tab title="Mentions" icon="at-sign">
+    Mention users with `@username` for notifications.
+
+    ```javascript
+    const comment = {
+      text: '@john Review the updated spec.',
+      taskId: 123
+    };
+    ```
+  </Tab>
+  <Tab title="Real-time Updates" icon="refresh-cw">
+    Changes sync instantly across devices.
+  </Tab>
+</Tabs>
+
+## Reporting and Analytics
+
+Generate reports to analyze productivity. Export data or view dashboards.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const tasks = await fetch('https://api.example.com/reports/tasks?period=week', {
+    headers: { 'Authorization': 'Bearer YOUR_TOKEN' }
+  }).then(res => res.json());
+
+  console.log(`Completed: ${tasks.completed}`);
+  ```
+  ```python
+  import requests
+
+  response = requests.get(
+      'https://api.example.com/reports/tasks?period=week',
+      headers={'Authorization': 'Bearer YOUR_TOKEN'}
+  )
+  tasks = response.json()
+  print(f"Completed: {tasks['completed']}")
+  ```
+</CodeGroup>
+
+<ParamField path="period" param-type="string" required="false">
+  Time range: `day`, `week`, `month`.
+</ParamField>
+
+<ParamField query="teamId" param-type="string" required="false">
+  Filter by team identifier.
+</ParamField>
+
+## Customization Options
+
+Tailor Rodion Mostovoi to your workflow with labels, automations, and views.
+
+<ExpandableGroup>
+  <Expandable title="Custom Labels" default-open="true">
+    Create labels like "urgent" or "review" for quick filtering.
+
+    ```javascript
+    await fetch('https://api.example.com/labels', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+      body: JSON.stringify({ name: 'urgent', color: '#ef4444' })
+    });
+    ```
+  </Expandable>
+  <Expandable title="Automations">
+    Set rules, such as auto-assigning tasks on creation.
+  </Expandable>
+  <Expandable title="Custom Views">
+    Build Kanban, list, or calendar views.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">
+  Explore integrations in the [quickstart](/quickstart) guide for advanced setups.
+</Callout>
